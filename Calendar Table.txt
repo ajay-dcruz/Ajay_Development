@@ -1,0 +1,20 @@
+Calender = 
+
+VAR  _Calender = 
+            CALENDAR("1/1/2010", "31/12/2049")
+Return 
+    ADDCOLUMNS(_Calender, "Year", YEAR([Date])
+                        , "Momth Number", MONTH([Date])
+                        , "Month", FORMAT([Date], "MMM")
+                        , "MonthYearNumber", FORMAT([Date], "YY MM")
+                        , "Month Year", FORMAT([Date], "mmm YYYY")
+                        , "Week Number", WEEKNUM([Date],2)
+                        , "Week Day", FORMAT([Date], "DDDD")
+                        , "Fiscal_Year", IF( MONTH([Date])<=6, Year([Date]),Year([Date])+1 )
+                        , "Fiscal Year", IF( MONTH([Date])<=6, "Fiscal Year" & Year([Date]), "Fiscal Year" & Year([Date])+1 )
+                        
+                        , "Financial_Year", IF( MONTH([Date])<=3, Year([Date]),Year([Date])+1 )
+                        , "Financial Year", IF( MONTH([Date])<=3, "Financial Year" & Year([Date]), "Financial Year" & Year([Date])+1 
+
+
+    ) )
